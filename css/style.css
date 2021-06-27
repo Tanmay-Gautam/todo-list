@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Orelega+One&display=swap");
+body {
+  background: #020631 !important;
+  color: white !important;
+  overflow-x: hidden;
+}
+
+p {
+  margin: 0 !important;
+  margin-left: 26px !important;
+}
+
+span {
+  display: block;
+  position: relative;
+}
+
+span input {
+  position: absolute;
+  top: 6px;
+}
+
+.logo {
+  font-family: "Orelega One", Verdana, Tahoma, sans-serif;
+  font-size: 2em;
+}
+
+.add-todo {
+  position: absolute;
+  top: 0;
+  right: 2.5%;
+  color: black;
+  height: 100%;
+  padding: 10px;
+  cursor: pointer;
+  -webkit-transition: color 0.15s linear;
+  transition: color 0.15s linear;
+}
+
+.add-todo:hover {
+  color: #383838;
+}
+
+.remove-todo {
+  -webkit-animation: todoDelete 1.5s;
+          animation: todoDelete 1.5s;
+}
+
+.remove-todo-btn {
+  display: block;
+  height: 100%;
+  cursor: pointer;
+  border: none;
+}
+
+@-webkit-keyframes todoDelete {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  to {
+    -webkit-transform: translateX(-140%);
+            transform: translateX(-140%);
+  }
+}
+
+@keyframes todoDelete {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  to {
+    -webkit-transform: translateX(-140%);
+            transform: translateX(-140%);
+  }
+}
+
+.form-check-input {
+  cursor: pointer;
+}
+
+.form-check-input:focus {
+  border-color: none !important;
+  outline: 0 !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.todo {
+  padding: 0 !important;
+  list-style: none;
+  min-height: 20vh;
+}
+
+.todo-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5em 1em;
+  margin: 1em auto !important;
+  width: 60vw;
+  border-radius: 5px;
+  background-color: white;
+  font-weight: 600;
+  color: black;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.todo-item::-moz-selection {
+  background: none;
+}
+
+.todo-item::selection {
+  background: none;
+}
+
+.completed {
+  color: #fff;
+  background-color: #5529dc;
+}
+/*# sourceMappingURL=style.css.map */
