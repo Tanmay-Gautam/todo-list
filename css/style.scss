@@ -14,7 +14,8 @@ span {
   position: relative;
   input {
     position: absolute;
-    top: 6px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 .logo {
@@ -37,12 +38,11 @@ span {
   }
 }
 .remove-todo {
-  animation: todoDelete 1.5s;
+  animation: todoDelete 1s;
   &-btn {
-    display: block;
+    // display: block;
     height: 100%;
     cursor: pointer;
-    // background-color: #5529dc;
     border: none;
   }
 }
@@ -79,7 +79,7 @@ span {
     background-color: white;
     font-weight: 600;
     color: black;
-    transition: all 0.5s ease;
+    transition: all 400ms;
   }
   &-item::selection {
     background: none;
@@ -88,4 +88,17 @@ span {
 .completed {
   color: #fff;
   background-color: #5529dc;
+  animation: flipX 400ms ease-in-out;
+  :first-child{
+    text-decoration: line-through; 
+  }
+}
+
+@keyframes flipX {
+  0%{
+    transform: rotateX(0deg);
+  }
+  100%{
+    transform: rotateX(180deg);
+  }
 }

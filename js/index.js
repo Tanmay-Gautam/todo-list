@@ -38,7 +38,7 @@ function addTodo(e) {
   if (todoInput.value !== "") {
     // Create list
     const newTodo = document.createElement("li");
-    newTodo.innerHTML += '<span><input type="checkbox">'+'<p>'+todoInput.value+'</p>'+'<span>';
+    newTodo.innerHTML += '<span><input class="checkbox" type="checkbox">'+'<p>'+todoInput.value+'</p>'+'</span>';
     newTodo.innerHTML += '<i class="fas fa-times remove-todo-btn" aria-hidden="true"></i>';
     newTodo.classList.add("todo-item");
 
@@ -46,15 +46,21 @@ function addTodo(e) {
 
       // add success class to todo
       if (!e.target.classList.contains("remove-todo-btn")) {
-        console.log(e);
+        // console.log(e);
         newTodo.classList.toggle("completed");
+        if(newTodo.classList.contains("completed")){
+          e.target.firstChild.firstChild.checked = true;
+        } else{
+          e.target.firstChild.firstChild.checked = false;
+        }
       }
 
       // remove todo after animation
       else if (e.target.classList.contains("remove-todo-btn")){
         setTimeout(() => {
           e.target.parentElement.remove();
-        }, 1400);
+        }, 990);
+        e.target.parentElement.classList.remove("completed");
         e.target.parentElement.classList.add("remove-todo");
       }
     });
