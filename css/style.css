@@ -7,11 +7,16 @@ body {
 
 p {
   margin: 0 !important;
-  margin-left: 26px !important;
+  margin-left: 0.75em !important;
 }
 
 span {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
 }
 
@@ -49,9 +54,14 @@ span input {
 }
 
 .remove-todo-btn {
+  color: black !important;
   height: 100%;
   cursor: pointer;
   border: none;
+}
+
+.remove-todo-btn:hover {
+  color: #383838;
 }
 
 @-webkit-keyframes todoDelete {
@@ -112,6 +122,11 @@ span input {
   color: black;
   -webkit-transition: all 400ms;
   transition: all 400ms;
+  padding-right: 0.25em !important;
+}
+
+.todo i {
+  color: #cccccc;
 }
 
 .todo-item::-moz-selection {
@@ -123,14 +138,18 @@ span input {
 }
 
 .completed {
-  color: #fff;
-  background-color: #5529dc;
+  color: #fff !important;
   -webkit-animation: flipX 400ms ease-in-out;
           animation: flipX 400ms ease-in-out;
+  background-color: #5529dc;
 }
 
-.completed :first-child {
+.completed p {
   text-decoration: line-through;
+}
+
+.completed i {
+  color: white !important;
 }
 
 @-webkit-keyframes flipX {
@@ -139,8 +158,8 @@ span input {
             transform: rotateX(0deg);
   }
   100% {
-    -webkit-transform: rotateX(180deg);
-            transform: rotateX(180deg);
+    -webkit-transform: rotateX(160deg);
+            transform: rotateX(160deg);
   }
 }
 
@@ -150,8 +169,8 @@ span input {
             transform: rotateX(0deg);
   }
   100% {
-    -webkit-transform: rotateX(180deg);
-            transform: rotateX(180deg);
+    -webkit-transform: rotateX(160deg);
+            transform: rotateX(160deg);
   }
 }
 /*# sourceMappingURL=style.css.map */

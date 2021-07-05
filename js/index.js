@@ -38,9 +38,11 @@ function addTodo(e) {
   if (todoInput.value !== "") {
     // Create list
     const newTodo = document.createElement("li");
-    newTodo.innerHTML += '<span><input class="checkbox" type="checkbox">'+'<p>'+todoInput.value+'</p>'+'</span>';
-    newTodo.innerHTML += '<i class="fas fa-times remove-todo-btn" aria-hidden="true"></i>';
-    newTodo.classList.add("todo-item");
+    // newTodo.innerHTML += '<span><input class="checkbox" type="checkbox">'+'<p>'+todoInput.value+'</p>'+'</span>';
+    newTodo.innerHTML += '<span><i class="far fa-circle"></i>'+'<p>'+todoInput.value+'</p>'+'</span>';
+
+    newTodo.innerHTML += '<i class="btn fas fa-times remove-todo-btn" aria-hidden="true"></i>';
+    newTodo.classList.add("todo-item", "container");
 
     newTodo.addEventListener("click", e => {
 
@@ -48,10 +50,18 @@ function addTodo(e) {
       if (!e.target.classList.contains("remove-todo-btn")) {
         // console.log(e);
         newTodo.classList.toggle("completed");
+
+        // changing the check icon
         if(newTodo.classList.contains("completed")){
-          e.target.firstChild.firstChild.checked = true;
+          e.target.firstChild.firstChild.classList.remove("far");
+          e.target.firstChild.firstChild.classList.add("fas");
+          e.target.firstChild.firstChild.classList.remove("fa-circle");
+          e.target.firstChild.firstChild.classList.add("fa-check");
         } else{
-          e.target.firstChild.firstChild.checked = false;
+          e.target.firstChild.firstChild.classList.remove("fas");
+          e.target.firstChild.firstChild.classList.add("far");
+          e.target.firstChild.firstChild.classList.remove("fa-check");
+          e.target.firstChild.firstChild.classList.add("fa-circle");
         }
       }
 
