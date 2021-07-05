@@ -52,16 +52,21 @@ function addTodo(e) {
         newTodo.classList.toggle("completed");
 
         // changing the check icon
-        if(newTodo.classList.contains("completed")){
-          e.target.firstChild.firstChild.classList.remove("far");
-          e.target.firstChild.firstChild.classList.add("fas");
-          e.target.firstChild.firstChild.classList.remove("fa-circle");
-          e.target.firstChild.firstChild.classList.add("fa-check");
-        } else{
-          e.target.firstChild.firstChild.classList.remove("fas");
-          e.target.firstChild.firstChild.classList.add("far");
-          e.target.firstChild.firstChild.classList.remove("fa-check");
-          e.target.firstChild.firstChild.classList.add("fa-circle");
+        try {
+          if(newTodo.classList.contains("completed")){
+            // console.log(e, e.target, e.target.firstChild, e.target.firstChild.firstChild);
+            e.target.firstChild.firstChild.classList.remove("far");
+            e.target.firstChild.firstChild.classList.add("fas");
+            e.target.firstChild.firstChild.classList.remove("fa-circle");
+            e.target.firstChild.firstChild.classList.add("fa-check");
+          } else{
+            e.target.firstChild.firstChild.classList.remove("fas");
+            e.target.firstChild.firstChild.classList.add("far");
+            e.target.firstChild.firstChild.classList.remove("fa-check");
+            e.target.firstChild.firstChild.classList.add("fa-circle");
+          }
+        } catch (err) {
+          console.warn(err);
         }
       }
 
