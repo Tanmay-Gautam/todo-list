@@ -18,7 +18,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://tanmay-gautam.github.io/todo-list)
 
    ```sh
    git clone https://github.com/tanmay-gautam/todo-list.git

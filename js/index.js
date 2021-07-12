@@ -39,8 +39,7 @@ function addTodo(e) {
     // Create list
     const newTodo = document.createElement("li");
     // newTodo.innerHTML += '<span><input class="checkbox" type="checkbox">'+'<p>'+todoInput.value+'</p>'+'</span>';
-    newTodo.innerHTML += '<span><i class="far fa-circle"></i>'+'<p>'+todoInput.value+'</p>'+'</span>';
-
+    newTodo.innerHTML += '<span><i class="checkbox far fa-circle"></i>'+'<p>'+todoInput.value+'</p>'+'</span>';
     newTodo.innerHTML += '<i class="btn fas fa-times remove-todo-btn" aria-hidden="true"></i>';
     newTodo.classList.add("todo-item", "container");
 
@@ -52,22 +51,19 @@ function addTodo(e) {
         newTodo.classList.toggle("completed");
 
         // changing the check icon
-        try {
-          if(newTodo.classList.contains("completed")){
-            // console.log(e, e.target, e.target.firstChild, e.target.firstChild.firstChild);
-            e.target.firstChild.firstChild.classList.remove("far");
-            e.target.firstChild.firstChild.classList.add("fas");
-            e.target.firstChild.firstChild.classList.remove("fa-circle");
-            e.target.firstChild.firstChild.classList.add("fa-check");
-          } else{
-            e.target.firstChild.firstChild.classList.remove("fas");
-            e.target.firstChild.firstChild.classList.add("far");
-            e.target.firstChild.firstChild.classList.remove("fa-check");
-            e.target.firstChild.firstChild.classList.add("fa-circle");
-          }
-        } catch (err) {
-          console.warn(err);
+        if(e.target.closest("li").querySelector(".checkbox").classList.contains("far")){
+          console.log(e.target.closest("li").querySelector(".checkbox").classList.toggle("fas"))
+          console.log(e.target.closest("li").querySelector(".checkbox").classList.toggle("far"))
+          console.log(e.target.closest("li").querySelector(".checkbox").classList.toggle("fa-check"))
+          console.log(e.target.closest("li").querySelector(".checkbox").classList.toggle("fa-circle"))
         }
+        else{
+          console.log(e.target.closest("li").querySelector(".checkbox").classList.toggle("fas"))
+          console.log(e.target.closest("li").querySelector(".checkbox").classList.toggle("far"))
+          console.log(e.target.closest("li").querySelector(".checkbox").classList.toggle("fa-check"))
+          console.log(e.target.closest("li").querySelector(".checkbox").classList.toggle("fa-circle"))
+        }
+        // if(e.target.closest("li")
       }
 
       // remove todo after animation

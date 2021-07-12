@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Orelega+One&display=swap");
 
 body {
+  height: 100vh;
   background: #020631 !important;
   color: white !important;
   overflow-x: hidden;
@@ -24,14 +25,17 @@ span {
   font-size: 2em;
 }
 
+.formDiv {
+  width: 60% !important;
+}
+
 .add-todo {
-  position: absolute;
-  top: 0;
-  right: 2.5%;
+  background: white !important;
+  border-left: none !important;
   color: black;
   // background: aqua;
   height: 100%;
-  padding: 10px;
+  padding: 10px !important;
   cursor: pointer;
   transition: color 0.15s linear;
   &:hover {
@@ -41,12 +45,11 @@ span {
 .remove-todo {
   animation: todoDelete 1s;
   &-btn {
-    // display: block;
     color: black !important;
     height: 100%;
     cursor: pointer;
     border: none;
-    &:hover{
+    &:hover {
       color: #383838;
     }
   }
@@ -61,15 +64,6 @@ span {
   }
 }
 
-.form-check-input {
-  cursor: pointer;
-  &:focus {
-    border-color: none !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-  }
-}
-
 .todo {
   padding: 0 !important;
   list-style: none;
@@ -80,7 +74,7 @@ span {
     align-items: center;
     padding: 0.5em 1em;
     margin: 1em auto !important;
-    width: 60vw;
+    width: 60% !important;
     border-radius: 5px;
     background-color: white;
     font-weight: 600;
@@ -88,7 +82,7 @@ span {
     transition: all 400ms;
     padding-right: 0.25em !important;
   }
-  i{
+  i {
     color: #cccccc;
   }
   &-item::selection {
@@ -99,20 +93,26 @@ span {
   color: #fff !important;
   animation: flipX 400ms ease-in-out;
   background-color: #5529dc;
-  p{
-    text-decoration: line-through; 
+  p {
+    text-decoration: line-through;
   }
-  i{
+  i {
     color: white !important;
   }
 }
 
 @keyframes flipX {
-  0%{
+  0% {
     transform: rotateX(0deg);
   }
-  100%{
+  100% {
     // transform: rotateX(180deg);
     transform: rotateX(160deg);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .todo-item {
+    width: 100% !important;
   }
 }

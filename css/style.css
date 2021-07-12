@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Orelega+One&display=swap");
 body {
+  height: 100vh;
   background: #020631 !important;
   color: white !important;
   overflow-x: hidden;
@@ -32,13 +33,16 @@ span input {
   font-size: 2em;
 }
 
+.formDiv {
+  width: 60% !important;
+}
+
 .add-todo {
-  position: absolute;
-  top: 0;
-  right: 2.5%;
+  background: white !important;
+  border-left: none !important;
   color: black;
   height: 100%;
-  padding: 10px;
+  padding: 10px !important;
   cursor: pointer;
   -webkit-transition: color 0.15s linear;
   transition: color 0.15s linear;
@@ -86,17 +90,6 @@ span input {
   }
 }
 
-.form-check-input {
-  cursor: pointer;
-}
-
-.form-check-input:focus {
-  border-color: none !important;
-  outline: 0 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
-}
-
 .todo {
   padding: 0 !important;
   list-style: none;
@@ -115,7 +108,7 @@ span input {
           align-items: center;
   padding: 0.5em 1em;
   margin: 1em auto !important;
-  width: 60vw;
+  width: 60% !important;
   border-radius: 5px;
   background-color: white;
   font-weight: 600;
@@ -171,6 +164,12 @@ span input {
   100% {
     -webkit-transform: rotateX(160deg);
             transform: rotateX(160deg);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .todo-item {
+    width: 100% !important;
   }
 }
 /*# sourceMappingURL=style.css.map */
