@@ -101,6 +101,10 @@ span {
   }
 }
 
+.input-group{
+  flex-wrap: nowrap !important;
+}
+
 @keyframes flipX {
   0% {
     transform: rotateX(0deg);
