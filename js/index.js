@@ -31,7 +31,7 @@ function addTodo() {
   if (todoInput.value !== "") {
     // Create list
     const newTodo = document.createElement("li");
-    newTodo.innerHTML += '<span><i class="checkbox far fa-circle"></i>'+'<p>'+todoInput.value+'</p>'+'</span>';
+    newTodo.innerHTML += `<span><i class="checkbox far fa-circle"></i><p>${todoInput.value}</p></span>`;
     newTodo.innerHTML += '<i class="btn fas fa-times remove-todo-btn" aria-hidden="true"></i>';
     newTodo.classList.add("todo-item", "container");
 
@@ -46,66 +46,68 @@ function addTodo() {
         checkboxIcon.classList.toggle("far");
         checkboxIcon.classList.toggle("fa-check");
         checkboxIcon.classList.toggle("fa-circle");
-      }
-      // remove todo after animation
-      else if (e.target.classList.contains("remove-todo-btn")) {
+
+        // remove todo after animation
+        updateLocalStorage();
+      } else if (e.target.classList.contains("remove-todo-btn")) {
         setTimeout(() => {
           e.target.parentElement.remove();
           updateLocalStorage();
-        }, 990);
+        }, 750);
         e.target.parentElement.classList.remove("completed");
         e.target.parentElement.classList.add("remove-todo");
       }
     });
 
     todoList.appendChild(newTodo);
-    todoInput.value = "";
-
     updateLocalStorage();
+    todoInput.value = "";
   }
 }
 
 function updateLocalStorage() {
-  const todos = Array.from(todoList.getElementsByTagName("li")).map((todo) => ({
-    text: todo.querySelector("p").innerText,
-    completed: todo.classList.contains("completed"),
-  }));
+  const todos = document.querySelectorAll(".todo-item");
 
-  localStorage.setItem("todos", JSON.stringify(todos));
+  const todoList = [];
+
+  todos.forEach((todo) => {
+    const todoText = todo.querySelector("p").innerText;
+    const isCompleted = todo.classList.contains("completed");
+
+    todoList.push({ text: todoText, completed: isCompleted });
+  });
+
+  localStorage.setItem("todos", JSON.stringify(todoList));
 }
 
 function restoreTodos() {
-  const todos = JSON.parse(localStorage.getItem("todos"));
-  if (todos) {
-    todos.forEach((todo) => {
+  const storedTodos = localStorage.getItem("todos");
+
+  if (storedTodos) {
+    const todoListElement = document.querySelector(".todo");
+    const todoList = JSON.parse(storedTodos);
+
+    todoList.forEach((todo) => {
       const newTodo = document.createElement("li");
-      newTodo.innerHTML += '<span><i class="checkbox far fa-circle"></i>'+'<p>'+todo.text+'</p>'+'</span>';
+      newTodo.innerHTML += `<span><i class="checkbox far ${todo.completed ? "fa-check" : "fa-circle"}"></i><p>${todo.text}</p></span>`;
       newTodo.innerHTML += '<i class="btn fas fa-times remove-todo-btn" aria-hidden="true"></i>';
       newTodo.classList.add("todo-item", "container");
-
       if (todo.completed) {
         newTodo.classList.add("completed");
-        const checkboxIcon = newTodo.querySelector(".checkbox");
-        checkboxIcon.classList.toggle("fas");
-        checkboxIcon.classList.toggle("far");
-        checkboxIcon.classList.toggle("fa-check");
-        checkboxIcon.classList.toggle("fa-circle");
       }
 
       newTodo.addEventListener("click", (e) => {
-        // add success class to todo
         if (!e.target.classList.contains("remove-todo-btn")) {
           newTodo.classList.toggle("completed");
 
-          // changing the check icon
           const checkboxIcon = e.target.closest("li").querySelector(".checkbox");
           checkboxIcon.classList.toggle("fas");
           checkboxIcon.classList.toggle("far");
           checkboxIcon.classList.toggle("fa-check");
           checkboxIcon.classList.toggle("fa-circle");
-        }
-        // remove todo after animation
-        else if (e.target.classList.contains("remove-todo-btn")) {
+
+          updateLocalStorage();
+        } else if (e.target.classList.contains("remove-todo-btn")) {
           setTimeout(() => {
             e.target.parentElement.remove();
             updateLocalStorage();
@@ -115,11 +117,12 @@ function restoreTodos() {
         }
       });
 
-      todoList.appendChild(newTodo);
+      todoListElement.appendChild(newTodo);
     });
   }
 }
 
+// Restore todos on page load
 document.addEventListener("DOMContentLoaded", restoreTodos);
 
 todoInput.addEventListener("keydown", (e) => {
