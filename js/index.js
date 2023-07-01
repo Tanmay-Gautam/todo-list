@@ -28,7 +28,7 @@ function addTodo() {
   if (todoInput.value !== "") {
     // Create list
     const newTodo = document.createElement("li");
-    newTodo.innerHTML += `<span><i class="checkbox far fa-circle"></i><p>${todoInput.value}</p></span>`;
+    newTodo.innerHTML += `<span><i class="checkbox fas fa-circle"></i><p>${todoInput.value}</p></span>`;
     newTodo.innerHTML += '<i class="btn fas fa-times remove-todo-btn" aria-hidden="true"></i>';
     newTodo.classList.add("todo-item", "container");
 
@@ -39,8 +39,6 @@ function addTodo() {
 
         // changing the check icon
         const checkboxIcon = e.target.closest("li").querySelector(".checkbox");
-        checkboxIcon.classList.toggle("fas");
-        checkboxIcon.classList.toggle("far");
         checkboxIcon.classList.toggle("fa-check");
         checkboxIcon.classList.toggle("fa-circle");
 
@@ -86,7 +84,7 @@ function restoreTodos() {
 
     todoList.forEach((todo) => {
       const newTodo = document.createElement("li");
-      newTodo.innerHTML += `<span><i class="checkbox far ${todo.completed ? "fa-check" : "fa-circle"}"></i><p>${todo.text}</p></span>`;
+      newTodo.innerHTML += `<span><i class="checkbox fas ${todo.completed ? "fa-check" : "fa-circle"}"></i><p>${todo.text}</p></span>`;
       newTodo.innerHTML += '<i class="btn fas fa-times remove-todo-btn" aria-hidden="true"></i>';
       newTodo.classList.add("todo-item", "container");
       if (todo.completed) {
@@ -98,8 +96,6 @@ function restoreTodos() {
           newTodo.classList.toggle("completed");
 
           const checkboxIcon = e.target.closest("li").querySelector(".checkbox");
-          checkboxIcon.classList.toggle("fas");
-          checkboxIcon.classList.toggle("far");
           checkboxIcon.classList.toggle("fa-check");
           checkboxIcon.classList.toggle("fa-circle");
 
