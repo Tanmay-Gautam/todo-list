@@ -2,26 +2,26 @@
 const todoInput = document.querySelector(".todo-input");
 const addBtn = document.querySelector(".add-todo");
 const todoList = document.querySelector(".todo");
-const greeting = document.getElementById("today");
+// const greeting = document.getElementById("today");
 
 // Event Listeners
 addBtn.addEventListener("click", addTodo);
 
 // Quotes array
-const quotes = [
-  "It's not about motivation, it's about discipline.",
-  "You don't get what you want in life. You get what you deserve.",
-  "Do not be wise in words - be wise in deeds.",
-  "Do the hard work, especially when you don't feel like it.",
-  "Hard work beats talent when talent doesn't work hard enough.",
-  "तपस्या सर्वभूतेषु तपस्यते राजसंयमी।"
-];
+// const quotes = [
+//   "It's not about motivation, it's about discipline.",
+//   "You don't get what you want in life. You get what you deserve.",
+//   "Do not be wise in words - be wise in deeds.",
+//   "Do the hard work, especially when you don't feel like it.",
+//   "Hard work beats talent when talent doesn't work hard enough.",
+//   "तपस्या सर्वभूतेषु तपस्यते राजसंयमी।"
+// ];
 
 // Calling function right after Declaring it
-(todayText = () => {
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  greeting.innerText = quotes[randomIndex];
-})();
+// (todayText = () => {
+//   const randomIndex = Math.floor(Math.random() * quotes.length);
+//   greeting.innerText = quotes[randomIndex];
+// })();
 
 // Functions
 function addTodo() {
