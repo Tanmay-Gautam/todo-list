@@ -15,9 +15,9 @@
   ],
   "icons": [
     {
-      "src": "./images/logo.svg",
-      "sizes": "100x100",
-      "type": "image/svg+xml"
+      "src": "./images/logo_800x800.png",
+      "sizes": "800x800",
+      "type": "image/png"
     }
   ],
   "screenshots": [
