@@ -1,0 +1,37 @@
+{
+  "start_url": "https://tanmay-gautam.github.io/todo-list/",
+  "name": "To-Do List",
+  "theme_color": "#020631",
+  "background_color": "#5529dc",
+  "short_name": "To-Do",
+  "id": "todo-list",
+  "description": "A simple todo list app",
+  "scope": "https://tanmay-gautam.github.io/todo-list/",
+  "lang": "en",
+  "display": "standalone",
+  "categories": [
+    "productivity",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "./images/logo.svg",
+      "sizes": "100x100",
+      "type": "image/svg+xml"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./images/screenshot.png",
+      "sizes": "1366x768",
+      "type": "image/png",
+      "platform": "wide"
+    },
+    {
+      "src": "./images/brave_screenshot.png",
+      "sizes": "1364x611",
+      "type": "image/png",
+      "platform": "wide"
+    }
+  ]
+}
