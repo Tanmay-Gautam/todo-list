@@ -89,34 +89,28 @@ span {
     background: none;
   }
 }
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+@media screen and (max-width: 600px) {
+  .todo-item {
+    width: 100% !important;
+  }
+}
+
 .completed {
   color: #fff !important;
-  animation: flipX 400ms ease-in-out;
+  transition: 
+  opacity 1s 2ms
+  background-color 1s 1ms;
+  opacity: 0.75;
   background-color: #5529dc;
   p {
     text-decoration: line-through;
   }
   i {
     color: white !important;
-  }
-}
-
-.flex-nowrap{
-  flex-wrap: nowrap;
-}
-
-@keyframes flipX {
-  0% {
-    transform: rotateX(0deg);
-  }
-  100% {
-    // transform: rotateX(180deg);
-    transform: rotateX(160deg);
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .todo-item {
-    width: 100% !important;
   }
 }

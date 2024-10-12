@@ -12,20 +12,14 @@ p {
 }
 
 span {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   position: relative;
 }
-
 span input {
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .logo {
@@ -44,68 +38,42 @@ span input {
   height: 100%;
   padding: 10px !important;
   cursor: pointer;
-  -webkit-transition: color 0.15s linear;
   transition: color 0.15s linear;
 }
-
 .add-todo:hover {
   color: #383838;
 }
 
 .remove-todo {
-  -webkit-animation: todoDelete 1s;
-          animation: todoDelete 1s;
+  animation: todoDelete 1s;
 }
-
 .remove-todo-btn {
   color: black !important;
   height: 100%;
   cursor: pointer;
   border: none;
 }
-
 .remove-todo-btn:hover {
   color: #383838;
 }
 
-@-webkit-keyframes todoDelete {
-  from {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  to {
-    -webkit-transform: translateX(-140%);
-            transform: translateX(-140%);
-  }
-}
-
 @keyframes todoDelete {
   from {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   to {
-    -webkit-transform: translateX(-140%);
-            transform: translateX(-140%);
+    transform: translateX(-140%);
   }
 }
-
 .todo {
   padding: 0 !important;
   list-style: none;
   min-height: 20vh;
 }
-
 .todo-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.5em 1em;
   margin: 1em auto !important;
   width: 60% !important;
@@ -113,58 +81,21 @@ span input {
   background-color: white;
   font-weight: 600;
   color: black;
-  -webkit-transition: all 400ms;
   transition: all 400ms;
   padding-right: 0.25em !important;
 }
-
 .todo i {
   color: #cccccc;
 }
-
 .todo-item::-moz-selection {
   background: none;
 }
-
 .todo-item::selection {
   background: none;
 }
 
-.completed {
-  color: #fff !important;
-  -webkit-animation: flipX 400ms ease-in-out;
-          animation: flipX 400ms ease-in-out;
-  background-color: #5529dc;
-}
-
-.completed p {
-  text-decoration: line-through;
-}
-
-.completed i {
-  color: white !important;
-}
-
-@-webkit-keyframes flipX {
-  0% {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-  }
-  100% {
-    -webkit-transform: rotateX(160deg);
-            transform: rotateX(160deg);
-  }
-}
-
-@keyframes flipX {
-  0% {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-  }
-  100% {
-    -webkit-transform: rotateX(160deg);
-            transform: rotateX(160deg);
-  }
+.flex-nowrap {
+  flex-wrap: nowrap;
 }
 
 @media screen and (max-width: 600px) {
@@ -172,4 +103,24 @@ span input {
     width: 100% !important;
   }
 }
-/*# sourceMappingURL=style.css.map */
+.completed {
+  color: #fff !important;
+  transition: opacity 1s 2ms background-color 1s 1ms;
+  opacity: 0.75;
+  background-color: #5529dc;
+}
+.completed p {
+  text-decoration: line-through;
+}
+.completed i {
+  color: white !important;
+}
+
+@keyframes lightenOpacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}/*# sourceMappingURL=style.css.map */
