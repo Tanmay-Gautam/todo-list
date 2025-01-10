@@ -1,0 +1,171 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container Styles */
+.container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    width: 100%;
+    max-width: 500px; /* Set a max width for larger screens */
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+/* Timer Display */
+#timeDisplay {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 5px;
+    width: 100%;
+    transition: all 0.3s ease;
+    background-color: #ffffff; /* White button background */
+    color: #333; /* Dark text */
+    border: 1px solid #d0d0d0; /* Border for white button */
+}
+
+/* Disabled Buttons */
+button:disabled {
+    background-color: #b0b0b0;
+    cursor: not-allowed;
+}
+
+/* Button Hover Effect */
+button:hover:not(:disabled) {
+    background-color: #f0f0f0; /* Slight gray on hover */
+}
+
+/* Input Fields */
+input {
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #d0d0d0;
+    border-radius: 8px;
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+}
+
+/* Input Focus Effect */
+input:focus {
+    border-color: #999;
+    outline: none;
+    box-shadow: 0 0 5px rgba(153, 153, 153, 0.5);
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 600px) {
+    body {
+        background-color: #ffffff;
+        padding: 0;
+        margin: 0;
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: none;
+    }
+
+    #timeDisplay {
+        font-size: 36px;
+    }
+
+    input {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 20px;
+    }
+}
+
+/* Timer Control and Reset Control Buttons */
+.timer-control button, .reset-control button {
+    margin: 0 !important;
+}
+
+/* Style for the form container (Focus/Break Inputs) */
+.columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Label Styles */
+.label {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* Style for larger screens */
+@media (min-width: 768px) {
+    .columns {
+        justify-content: space-between;
+    }
+
+    .column {
+        margin-bottom: 20px;
+    }
+}
+
+/* Style for smaller screens (responsive design) */
+@media (max-width: 768px) {
+    .column {
+        margin-bottom: 15px;
+    }
+
+    .columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .label {
+        text-align: center;
+    }
+
+    input {
+        max-width: 300px;
+    }
+}
+
+/* Ensure the container is slimmer on large screens */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 500px !important; /* Set a max width for larger screens */
+    }
+}
+
+.sessionLog {
+    /* margin top in responsive manner */
+    margin-top: 2em;
+}

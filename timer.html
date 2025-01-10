@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyTime</title>
+    <!-- Bulma CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="css/timer.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div class="container box has-text-centered">
+
+        <!-- theme toggle and todo list button -->
+        <div class="columns is-justify-content-space-between m-0 ">
+              <span id="themeToggle" class="icon is-rounded" onClick="toggleTheme()">
+                <i class="fas fa-moon"></i>
+                </span>
+            <span id="todoList" class="icon is-rounded " onClick="window.open('todo.html', '_self')">
+                <i class="fas fa-list"></i>
+            </span>
+
+        </div>
+
+        <!-- Timer Display -->
+        <div id="timeDisplay" class="title is-1">00:00</div>
+
+        <!-- Focus and Break Inputs -->
+        <div class="columns is-centered m-0">
+            <div class="column mb-2 is-half">
+                <div class="field">
+                    <label for="focusTime" class="label">Focus Time</label>
+                    <div class="control">
+                        <input type="number" id="focusTime" value="90" min="1" class="input"
+                            placeholder="Enter Focus Time (minutes)" />
+                    </div>
+                </div>
+            </div>
+            <div class="column mb-2 is-half">
+                <div class="field">
+                    <label for="breakTime" class="label">Break Time</label>
+                    <div class="control">
+                        <input type="number" id="breakTime" value="15" min="1" class="input"
+                            placeholder="Enter Break Time (minutes)" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timer Control Buttons -->
+        <div class="columns is-centered m-0">
+            <div class="column m-0 p-1 is-half">
+                <button id="startFocusButton" class="button is-black is-fullwidth">
+                    <span class="icon"><i class="fas fa-play"></i></span>
+                    <span>Start Focus</span>
+                </button>
+            </div>
+            <div class="column m-0 p-1 is-half">
+                <button id="startBreakButton" class="button is-black is-fullwidth">
+                    <span class="icon"><i class="fas fa-coffee"></i></span>
+                    <span>Start Break</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Stop and Reset Buttons -->
+        <div class="columns is-centered m-0">
+            <div class="column m-0 p-1 is-half">
+                <button id="stopButton" class="button is-black is-fullwidth" disabled>
+                    <span class="icon"><i class="fas fa-stop"></i></span>
+                    <span>Stop</span>
+                </button>
+            </div>
+            <div class="column m-0 p-1 is-half">
+                <button id="resetButton" class="button is-black is-fullwidth" disabled>
+                    <span class="icon"><i class="fas fa-redo"></i></span>
+                    <span>Reset</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Session Log -->
+        <div class="sessionLog">
+            <h3 class="title mb-0 is-4">Session Log</h3>
+            <div class="buttons is-centered is-grouped">
+                <p class="column is-half p-1">
+                    <button id="clearLogButton" class="button is-black">
+                        <span class="icon"><i class="fas fa-trash"></i></span>
+                        <span>Clear Log</span>
+                    </button>
+                </p>
+                <p class="column is-half p-1">
+                    <button id="downloadButton" class="button is-black">
+                        <span class="icon"><i class="fas fa-download"></i></span>
+                        <span>Download as JSON</span>
+                    </button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/timer.js"></script>
+</body>
+
+</html>
