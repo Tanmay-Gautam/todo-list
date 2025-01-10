@@ -1,0 +1,66 @@
+{
+  "display_override": ["window-controls-overlay"], 
+  "start_url": "https://tanmay-gautam.github.io/todo-list/",
+  "name": "StudyTime",
+  "theme_color": "#020631",
+  "background_color": "#5529dc",
+  "short_name": "StudyTime",
+  "id": "StudyTime",
+  "description": "A simple todo list and timer app",
+  "scope": "https://tanmay-gautam.github.io/todo-list/",
+  "lang": "en",
+  "display": "standalone",
+  "orientation": "portrait",
+  "shortcuts": [
+    {
+      "name": "Open Timer",
+      "short_name": "Timer",
+      "description": "Open the timer",
+      "url": "/timer",
+      "icons": [{ "src": "/images/logo_800x800.png", "sizes": "800x800", "type": "image/png" }]
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+studytime",
+      "url": "/?url=%s"
+    }
+  ],
+  "categories": [
+    "productivity",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "./images/logo_800x800.png",
+      "sizes": "800x800",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./images/screenshot.png",
+      "sizes": "1366x768",
+      "type": "image/png",
+      "platform": "wide"
+    },
+    {
+      "src": "./images/brave_screenshot.png",
+      "sizes": "1364x611",
+      "type": "image/png",
+      "platform": "wide"
+    },
+    {
+      "src": "./images/tododark.png",
+      "sizes": "543x542",
+      "type": "image/png",
+      "platform": "wide"
+    },
+    {
+      "src": "./images/todolight.png",
+      "sizes": "541x544",
+      "type": "image/png",
+      "platform": "wide"
+    }
+  ]
+}
