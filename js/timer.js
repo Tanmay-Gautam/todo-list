@@ -44,7 +44,7 @@ function updateTimer() {
 }
 
 // Start Focus Timer
-startFocusButton.addEventListener('click', function() {
+startFocusButton.addEventListener('click', function () {
     focusTime = parseInt(focusTimeInput.value) * 60;
     breakTime = parseInt(breakTimeInput.value) * 60;
     isFocusActive = true;
@@ -58,7 +58,7 @@ startFocusButton.addEventListener('click', function() {
 });
 
 // Start Break Timer
-startBreakButton.addEventListener('click', function() {
+startBreakButton.addEventListener('click', function () {
     isBreakActive = true;
     breakStartTime = Date.now();
     stopButton.disabled = false;
@@ -70,7 +70,7 @@ startBreakButton.addEventListener('click', function() {
 });
 
 // Stop Timer
-stopButton.addEventListener('click', function() {
+stopButton.addEventListener('click', function () {
     if (isFocusActive) {
         stopFocus();
     } else if (isBreakActive) {
@@ -101,13 +101,13 @@ function stopBreak() {
 // Save session log in memory
 function saveSessionLog(focusTime, breakTime) {
     let logEntry;
-    if (focusTime > 0) {  
+    if (focusTime > 0) {
         logEntry = {
             date: new Date().toLocaleDateString(),
             startTime: new Date(focusStartTime).toLocaleTimeString(),
             endTime: new Date().toLocaleTimeString(),
             focusTime: focusTime.toFixed(2), // Round to 2 decimal places
-        };   
+        };
     } else {
         logEntry = {
             date: new Date().toLocaleDateString(),
@@ -121,13 +121,13 @@ function saveSessionLog(focusTime, breakTime) {
 }
 
 // Clear session log
-clearLogButton.addEventListener('click', function() {
+clearLogButton.addEventListener('click', function () {
     sessionLog = [];
     localStorage.removeItem('sessionLog');
 });
 
 // Download session log as JSON
-downloadButton.addEventListener('click', function() {
+downloadButton.addEventListener('click', function () {
     const logData = JSON.stringify(sessionLog, null, 2);
     const blob = new Blob([logData], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -138,7 +138,7 @@ downloadButton.addEventListener('click', function() {
 });
 
 // Reset Timer
-resetButton.addEventListener('click', function() {
+resetButton.addEventListener('click', function () {
     clearInterval(focusTimer);
     clearInterval(breakTimer);
     timeDisplay.textContent = '00:00';
@@ -152,4 +152,22 @@ resetButton.addEventListener('click', function() {
 function toggleTheme() {
     // toggle style filter: invert property to html element
     document.documentElement.style.filter = document.documentElement.style.filter ? '' : 'invert(1)';
+    document.querySelectorAll('iframe').forEach(iframe => {
+        iframe.contentDocument.documentElement.style.filter = iframe.contentDocument.documentElement.style.filter ? '' : 'invert(1)';
+    }
+    );
 }
+
+// event listener for theme toggle button keydown event (ctrl + shoft + t)
+document.body.addEventListener('keydown', function (event) {
+    if (event.ctrlKey && event.shiftKey && event.key === 'T') {
+        toggleTheme();
+    }
+});
+
+// event listerner to open youtube in new tab (ctrl + shift + y)
+document.body.addEventListener('keydown', function (event) {
+    if (event.ctrlKey && event.shiftKey && event.key === 'Y') {
+        window.open('https://www.youtube.com/', '_blank');
+    }
+});

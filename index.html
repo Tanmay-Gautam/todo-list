@@ -10,18 +10,31 @@
     <link rel="stylesheet" href="css/timer.css">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <!-- Favicon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+
+    <!-- MANIFEST.JSON -->
+    <link rel="manifest" href="manifest.json">
+
 </head>
 
 <body>
+    <div class="container todo-container">
+        <iframe id="todoFrame" src="todo.html" frameborder="0"></iframe>
+    </div>
     <div class="container box has-text-centered">
 
         <!-- theme toggle and todo list button -->
         <div class="columns is-flex-direction-row is-justify-content-space-between m-0 ">
-              <span id="themeToggle" class="icon is-rounded" onClick="toggleTheme()">
+            <span id="themeToggle" class="icon is-rounded" onClick="toggleTheme()">
                 <i class="fas fa-moon"></i>
-                </span>
+            </span>
             <!-- <span id="todoList" class="icon is-rounded " onClick="window.close()"> -->
-            <span id="todoList" class="icon is-rounded " onClick="window.open('timer.html', '_blank')">
+            <span id="todoList" class="icon is-rounded " onClick="window.open('todo.html', '_blank')">
                 <i class="fas fa-list"></i>
             </span>
 
@@ -105,6 +118,14 @@
     </div>
 
     <script src="js/timer.js"></script>
+
+    <!-- Linking The Service Worker -->
+    <script>
+        if (typeof navigator.serviceWorker !== 'undefined') {
+            navigator.serviceWorker.register('./js/pwabuilder-sw.js')
+        }
+    </script>
+
 </body>
 
 </html>

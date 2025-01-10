@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Orelega+One&display=swap");
+
 body {
   height: 100vh;
   background: #020631 !important;
   color: white !important;
   overflow-x: hidden;
+  overflow: hidden !important; 
 }
 
 p {
@@ -16,6 +18,7 @@ span {
   align-items: center;
   position: relative;
 }
+
 span input {
   position: absolute;
   top: 50%;
@@ -40,6 +43,7 @@ span input {
   cursor: pointer;
   transition: color 0.15s linear;
 }
+
 .add-todo:hover {
   color: #383838;
 }
@@ -47,12 +51,14 @@ span input {
 .remove-todo {
   animation: todoDelete 1s;
 }
+
 .remove-todo-btn {
   color: black !important;
   height: 100%;
   cursor: pointer;
   border: none;
 }
+
 .remove-todo-btn:hover {
   color: #383838;
 }
@@ -61,15 +67,18 @@ span input {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-140%);
   }
 }
+
 .todo {
   padding: 0 !important;
   list-style: none;
   min-height: 20vh;
 }
+
 .todo-item {
   display: flex;
   justify-content: space-between;
@@ -84,12 +93,15 @@ span input {
   transition: all 400ms;
   padding-right: 0.25em !important;
 }
+
 .todo i {
   color: #ababab;
 }
+
 .todo-item::-moz-selection {
   background: none;
 }
+
 .todo-item::selection {
   background: none;
 }
@@ -103,15 +115,18 @@ span input {
     width: 100% !important;
   }
 }
+
 .completed {
   color: #fff !important;
   transition: opacity 1s 2ms background-color 1s 1ms;
   opacity: 0.75;
   background-color: #5529dc;
 }
+
 .completed p {
   text-decoration: line-through;
 }
+
 .completed i {
   color: white !important;
 }
@@ -120,6 +135,7 @@ span input {
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0.7;
   }

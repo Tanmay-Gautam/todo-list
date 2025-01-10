@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* overflow: auto !important;  */
 }
 
 body {
@@ -10,10 +11,13 @@ body {
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;  /* Horizontally center */
+    flex-flow: wrap-reverse;  
+    /* flex-direction: row;  */
     align-items: center;      /* Vertically center on larger screens */
     height: 100vh;
     margin: 0;
     overflow-y: auto;         /* Allow vertical scrolling */
+    
 }
 
 /* Container Styles */
@@ -148,7 +152,7 @@ input:focus {
 /* Style for the form container (Focus/Break Inputs) */
 .columns {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 /* Label Styles */
@@ -160,7 +164,7 @@ input:focus {
 /* Style for larger screens */
 @media (min-width: 768px) {
     .columns {
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     .column {
@@ -177,4 +181,13 @@ input:focus {
 
 .sessionLog {
     margin-top: 2em;
+}
+
+#todoFrame {
+    height: 90vh !important;
+    width: 100% !important;
+}
+
+.todo-container{
+    min-width: 50vw !important;
 }
