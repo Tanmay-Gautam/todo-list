@@ -9,10 +9,11 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center;  /* Horizontally center */
+    align-items: center;      /* Vertically center on larger screens */
     height: 100vh;
     margin: 0;
+    overflow-y: auto;         /* Allow vertical scrolling */
 }
 
 /* Container Styles */
@@ -25,6 +26,7 @@ body {
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
+    overflow: hidden; /* Prevent overflow within the container */
 }
 
 /* Timer Display */
@@ -83,18 +85,18 @@ input:focus {
         background-color: #ffffff;
         padding: 0;
         margin: 0;
+        align-items: flex-start; /* Align top on small screens */
+        height: auto; /* Allow the body to expand */
     }
 
     .container {
         width: 100%;
-        height: 100vh;
-        padding: 0;
+        padding: 10px;
         box-shadow: none;
         border-radius: 0;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        background: none;
+        justify-content: flex-start; /* Align items to the top */
     }
 
     #timeDisplay {
@@ -107,6 +109,34 @@ input:focus {
 
     button {
         font-size: 20px;
+    }
+
+    .columns {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .column {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .icon {
+        margin: 0 5px;
+        font-size: 24px; /* Adjust icon size for mobile */
+    }
+}
+
+/* Ensure content scrolls on mobile screens */
+@media (max-width: 600px) {
+    .container {
+        max-height: 90vh; /* Limit max height to fit screen */
+        overflow-y: auto; /* Enable vertical scroll */
+    }
+
+    body {
+        overflow: auto; /* Allow scrolling if content overflows */
     }
 }
 
@@ -138,26 +168,6 @@ input:focus {
     }
 }
 
-/* Style for smaller screens (responsive design) */
-@media (max-width: 768px) {
-    .column {
-        margin-bottom: 15px;
-    }
-
-    .columns {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .label {
-        text-align: center;
-    }
-
-    input {
-        max-width: 300px;
-    }
-}
-
 /* Ensure the container is slimmer on large screens */
 @media (min-width: 1024px) {
     .container {
@@ -166,6 +176,5 @@ input:focus {
 }
 
 .sessionLog {
-    /* margin top in responsive manner */
     margin-top: 2em;
 }

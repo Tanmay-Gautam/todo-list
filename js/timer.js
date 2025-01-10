@@ -150,6 +150,6 @@ resetButton.addEventListener('click', function() {
 
 // toggleTheme function
 function toggleTheme() {
-    // toggle style filter: invert property to body element
-    document.body.style.filter = document.body.style.filter ? '' : 'invert(1)';
+    // toggle style filter: invert property to html element
+    document.documentElement.style.filter = document.documentElement.style.filter ? '' : 'invert(1)';
 }
